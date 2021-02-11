@@ -7,6 +7,7 @@ Pre-requisites:
 - Amazon AWS account set up with a user with a role suitable for using AWS Glue. See: https://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html
 - AWS CLI version 2 installed and configured. See: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html <br>Remember to set up configuration for your preferred region.
 - API key and hostname for the Exabel API provided by Exabel.
+- A signal qualifier for the produced timeseries provided by Exabel. 
 
 # Install
 
@@ -29,9 +30,15 @@ Running the Workflow starts the full data pipeline.
 
 To uninstall the project from the AWS account run 'project-teardown.sh' in the aws directory.
 
+# Workflow
+
+The pipeline consists of a number of jobs and triggers. 
+
+![Workflow screenshot from AWS Glue](workflow.png)
+
 # Jobs in pipeline 
 
-- extract-job: Input is data in 3 tables that was populated with a Crawler. Output is 2 sets of csv 
+- extraction-job: Input is data in 3 tables that was populated with a Crawler. Output is 2 sets of csv 
   files. The first is extracted and aggregated timeseries data with client id's. The second is a client id
   mapping.
   
@@ -48,3 +55,11 @@ To uninstall the project from the AWS account run 'project-teardown.sh' in the a
 
 - load-timeseries-job: Input is a csv file with rows consisting of Exabel entity id's and timeseries data.
   This data is loaded into the Exabel database. This uses the Exabel Python SDK.
+  
+Jobs created in AWS Glue Studio can be viewed as a diagram. As an example this is 
+the corresponding flow for the extraction-job.
+
+![extraction-job example screenshot from AWS Glue Studio](extraction-job.png)
+
+
+
