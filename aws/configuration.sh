@@ -33,7 +33,7 @@ signals="<signal1, signal2>"
 
 # A list of library wheel files to pass to the pythonshell jobs
 # Add your own libraries here if necessary
-extra_py_files="s3://$bucket/python/libraries/s3fs-0.4.2-py3-none-any.whl, s3://$bucket/python/libraries/exabel_data_sdk-0.0.6-py3-none-any.whl"
+extra_py_files="s3://$bucket/python/libraries/s3fs-0.4.2-py3-none-any.whl, s3://$bucket/python/libraries/exabel_data_sdk-0.0.9-py3-none-any.whl"
 
 # Let script run without output interruptions - use empty version if you want to see output from aws
 quiet="> /dev/null"
