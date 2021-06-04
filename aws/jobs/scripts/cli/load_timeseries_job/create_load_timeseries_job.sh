@@ -23,7 +23,7 @@ aws glue create-job \
         "--input-key": "data/etl-output/time-series/prepared/",
         "--input-filename": "timeseries.csv.gz",
         "--signals": "'$signals'",
-        "--extra-py-files": "'$extra_py_files'",
+        "--extra-py-files": "$extra_py_files",
         "--job-bookmark-option": "job-bookmark-disable",
         "--job-language": "python"
     }' \

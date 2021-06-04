@@ -24,7 +24,7 @@ aws glue create-job \
         "--input-filename": "identities.csv.gz",
         "--output-key": "data/etl-output/mapping/entity-mapping/",
         "--output-filename": "entity_mapping.csv",
-        "--extra-py-files": "'$extra_py_files'",
+        "--extra-py-files": "$extra_py_files",
         "--job-bookmark-option": "job-bookmark-disable",
         "--job-language": "python"
     }' \
